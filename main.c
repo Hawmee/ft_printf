@@ -1,23 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: varandri <varandri@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/02/03 16:40:19 by varandri          #+#    #+#             */
-/*   Updated: 2026/02/08 15:25:24 by varandri         ###   ########.fr       */
+/*   Created: 2026/02/08 10:53:46 by varandri          #+#    #+#             */
+/*   Updated: 2026/02/08 16:29:02 by varandri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
-# include <stdarg.h>
-# include <unistd.h>
+#include <stdio.h>
+#include <stdint.h>
+#include "ft_printf.h"
 
-size_t	ft_strlen(const char *s);
-int		ft_printf(const char *c, ...);
-int		ft_str(char *);
-int		ft_chr(char c);
-
-#endif
+int main (void)
+{
+	char *test = NULL;
+	ft_printf("helllo %s %s", test, "hell");
+	return (0);
+}

@@ -1,23 +1,45 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   ft_int.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: varandri <varandri@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/02/03 16:40:19 by varandri          #+#    #+#             */
-/*   Updated: 2026/02/08 15:25:24 by varandri         ###   ########.fr       */
+/*   Created: 2026/02/08 15:55:07 by varandri          #+#    #+#             */
+/*   Updated: 2026/02/08 16:25:15 by varandri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
-# include <stdarg.h>
-# include <unistd.h>
+#include "ft_printf.c"
 
-size_t	ft_strlen(const char *s);
-int		ft_printf(const char *c, ...);
-int		ft_str(char *);
-int		ft_chr(char c);
+// static size_t	ft_int_len(int n)
+// {
+// 	size_t	i;
+	
+// 	i = 0;
+// 	if (!n)
+// 		i ++;
+// 	if (n < 0)
+// 	{
+// 		n = -n;
+// 		i ++;
+// 	}
+// 	while (n)
+// 	{
+// 		i ++;
+// 		n /= 10;
+// 	}
+// 	return(i);
+// }
 
-#endif
+// int	ft_int(int n)
+// {
+// 	long	nbr;
+// 	size_t	n_len;
+// 	char	*str;
+
+// 	nbr = n;
+// 	n_len = ft_int_len(nbr);
+
+// 	return(n_len);
+// }
