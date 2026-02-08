@@ -17,10 +17,12 @@ static int	check_flag(char c, va_list arg)
 	int		count;
 
 	count = 0;
-	if(c == 's')
+	if (c == 's')
 		count = ft_str(va_arg(arg, char *));
 	if (c == 'c')
 		count = ft_chr(va_arg(arg, int));
+	if (c == 'd' || c == 'i')
+		count = ft_int(va_arg(arg, int));
 	return (count);
 }
 
@@ -29,7 +31,7 @@ int	ft_printf(const char *c, ...)
 	va_list	args;
 	size_t	i;
 	int		count;
-	
+
 	if (!c)
 		return (-1);
 	i = 0;

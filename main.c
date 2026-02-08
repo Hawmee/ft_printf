@@ -17,6 +17,6 @@
 int main (void)
 {
 	char *test = NULL;
-	ft_printf("helllo %s %s", test, "hell");
+	ft_printf("helllo %s %s %i\n", test, "hell", -211231231);
 	return (0);
 }

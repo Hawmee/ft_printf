@@ -13,11 +13,13 @@
 #ifndef FT_PRINTF_H
 # define FT_PRINTF_H
 # include <stdarg.h>
+# include <stdlib.h>
 # include <unistd.h>
 
 size_t	ft_strlen(const char *s);
 int		ft_printf(const char *c, ...);
-int		ft_str(char *);
+int		ft_str(char *s);
 int		ft_chr(char c);
+int		ft_int(int n);
 
 #endif
