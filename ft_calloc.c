@@ -1,27 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_str.c                                           :+:      :+:    :+:   */
+/*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: varandri <varandri@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/02/08 14:28:28 by varandri          #+#    #+#             */
-/*   Updated: 2026/02/08 14:31:15 by varandri         ###   ########.fr       */
+/*   Created: 2026/02/12 14:34:11 by varandri          #+#    #+#             */
+/*   Updated: 2026/02/12 14:38:02 by varandri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_str(char *s)
+void	*ft_calloc(size_t nmemb, size_t size)
 {
-	int	len;
+	void	*ptr;
+	size_t	i;
 
-	if (!s)
-	{
-		write(1, "(null)", 6);
-		return (6);
-	}
-	write(1, s, ft_strlen(s));
-	len = ft_strlen(s);
-	return (len);
+	if (size && nmemb > (size_t)-1 / size)
+		return (NULL);
+	ptr = malloc (nmemb * size);
+	if (!ptr)
+		return (NULL);
+	i = 0;
+	while (i < (nmemb * size))
+		((unsigned char *)ptr)[i++] = 0;
+	return ((void *)ptr);
 }

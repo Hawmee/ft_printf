@@ -6,7 +6,7 @@
 /*   By: varandri <varandri@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/03 16:39:00 by varandri          #+#    #+#             */
-/*   Updated: 2026/02/08 16:28:57 by varandri         ###   ########.fr       */
+/*   Updated: 2026/02/12 15:59:15 by varandri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,11 +18,15 @@ static int	check_flag(char c, va_list arg)
 
 	count = 0;
 	if (c == 's')
-		count = ft_str(va_arg(arg, char *));
+		count = ft_print_str(va_arg(arg, char *));
 	if (c == 'c')
-		count = ft_chr(va_arg(arg, int));
+		count = ft_print_chr(va_arg(arg, int));
 	if (c == 'd' || c == 'i')
-		count = ft_int(va_arg(arg, int));
+		count = ft_print_int(va_arg(arg, int));
+	if (c == 'x')
+		count = ft_print_hex(va_arg(arg, unsigned int), NULL);
+	if (c == 'X')
+		count = ft_print_hex(va_arg(arg, unsigned int), ft_toupper);
 	return (count);
 }
 
@@ -40,11 +44,11 @@ int	ft_printf(const char *c, ...)
 	while (c[i])
 	{
 		if (c[i] != '%' || (c[i] == '%' && c[i + 1] == '%'))
-			count += ft_chr(c[i]);
+			count += ft_print_chr(c[i]);
 		if (c[i] == '%')
 		{
 			i ++;
-			count += check_flag(c[i], (void *)args);
+			count += check_flag(c[i], args);
 		}
 		i ++;
 	}

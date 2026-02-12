@@ -1,19 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_chr.c                                           :+:      :+:    :+:   */
+/*   ft_toupper.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: varandri <varandri@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/02/08 15:00:49 by varandri          #+#    #+#             */
-/*   Updated: 2026/02/08 15:08:14 by varandri         ###   ########.fr       */
+/*   Created: 2026/02/12 15:03:12 by varandri          #+#    #+#             */
+/*   Updated: 2026/02/12 15:06:18 by varandri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
-
-int	ft_chr(char c)
+char	*ft_toupper(char *s)
 {
-	write(1, &c, 1);
-	return (1);
+	int	i;
+
+	i = 0;
+	while (s && s[i])
+	{
+		if (s[i] >= 'a' && s[i] <= 'z')
+			s[i] = s[i] + 32;
+		i++;
+	}
+	return (s);
 }

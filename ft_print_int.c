@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_int.c                                           :+:      :+:    :+:   */
+/*   ft_print_int.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: varandri <varandri@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/08 15:55:07 by varandri          #+#    #+#             */
-/*   Updated: 2026/02/08 16:25:15 by varandri         ###   ########.fr       */
+/*   Updated: 2026/02/12 14:40:49 by varandri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ static void	ft_convert(char *str, long n, size_t n_len)
 	}
 }
 
-int	ft_int(int n)
+int	ft_print_int(int n)
 {
 	long	nbr;
 	size_t	n_len;
@@ -57,10 +57,9 @@ int	ft_int(int n)
 
 	nbr = n;
 	n_len = ft_int_len(nbr);
-	str = malloc(sizeof(char) * (n_len + 1));
+	str = ft_calloc((n_len + 1), sizeof(char));
 	if (!str)
 		return (-1);
-	str[n_len] = '\0';
 	ft_convert(str, nbr, n_len);
 	write(1, str, n_len);
 	free(str);

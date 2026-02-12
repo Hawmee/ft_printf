@@ -1,27 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   ft_print_str.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: varandri <varandri@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/02/03 16:40:19 by varandri          #+#    #+#             */
-/*   Updated: 2026/02/12 15:16:17 by varandri         ###   ########.fr       */
+/*   Created: 2026/02/08 14:28:28 by varandri          #+#    #+#             */
+/*   Updated: 2026/02/12 14:16:49 by varandri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
-# include <stdarg.h>
-# include <stdlib.h>
-# include <unistd.h>
+#include "ft_printf.h"
 
-void	*ft_calloc(size_t nmemb, size_t size);
-char	*ft_toupper(char *s);
-size_t	ft_strlen(const char *s);
-int		ft_printf(const char *c, ...);
-int		ft_print_str(char *s);
-int		ft_print_chr(char c);
-int		ft_print_int(int n);
-int		ft_print_hex(unsigned int	n, char *(*f)(char *));
-#endif
+int	ft_print_str(char *s)
+{
+	int	len;
+
+	if (!s)
+	{
+		write(1, "(null)", 6);
+		return (6);
+	}
+	write(1, s, ft_strlen(s));
+	len = ft_strlen(s);
+	return (len);
+}
