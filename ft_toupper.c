@@ -6,7 +6,7 @@
 /*   By: varandri <varandri@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/12 15:03:12 by varandri          #+#    #+#             */
-/*   Updated: 2026/02/12 15:06:18 by varandri         ###   ########.fr       */
+/*   Updated: 2026/02/13 14:46:54 by varandri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ char	*ft_toupper(char *s)
 	while (s && s[i])
 	{
 		if (s[i] >= 'a' && s[i] <= 'z')
-			s[i] = s[i] + 32;
+			s[i] = s[i] - 32;
 		i++;
 	}
 	return (s);

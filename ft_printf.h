@@ -6,7 +6,7 @@
 /*   By: varandri <varandri@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/03 16:40:19 by varandri          #+#    #+#             */
-/*   Updated: 2026/02/12 15:16:17 by varandri         ###   ########.fr       */
+/*   Updated: 2026/02/13 14:45:40 by varandri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,5 +23,5 @@ int		ft_printf(const char *c, ...);
 int		ft_print_str(char *s);
 int		ft_print_chr(char c);
 int		ft_print_int(int n);
-int		ft_print_hex(unsigned int	n, char *(*f)(char *));
+int		ft_print_hex(unsigned int n, char *(*f)(char *));
 #endif
