@@ -6,7 +6,7 @@
 /*   By: varandri <varandri@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/03 16:39:00 by varandri          #+#    #+#             */
-/*   Updated: 2026/02/12 15:59:15 by varandri         ###   ########.fr       */
+/*   Updated: 2026/02/13 18:14:57 by varandri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,10 @@ static int	check_flag(char c, va_list arg)
 		count = ft_print_hex(va_arg(arg, unsigned int), NULL);
 	if (c == 'X')
 		count = ft_print_hex(va_arg(arg, unsigned int), ft_toupper);
+	if (c == 'p')
+		count = ft_print_ptr(va_arg(arg, unsigned long int));
+	if (c == 'u')
+		count = ft_print_uint(va_arg(arg, unsigned int));
 	return (count);
 }
 
