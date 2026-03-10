@@ -1,24 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_int.c                                     :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: varandri <varandri@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/02/08 15:55:07 by varandri          #+#    #+#             */
-/*   Updated: 2026/03/10 12:02:27 by varandri         ###   ########.fr       */
+/*   Created: 2026/01/20 08:20:07 by varandri          #+#    #+#             */
+/*   Updated: 2026/03/10 11:31:41 by varandri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
-int	ft_print_int(int n)
+size_t	ft_strlen(const char *s)
 {
-	char	*str;
-	int		count;
+	size_t	i;
 
-	str = ft_itoa(n);
-	count = ft_print_str(str);
-	free(str);
-	return (count);
+	i = 0;
+	while (s && s[i])
+		i++;
+	return (i);
 }

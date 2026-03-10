@@ -1,24 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_int.c                                     :+:      :+:    :+:   */
+/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: varandri <varandri@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/02/08 15:55:07 by varandri          #+#    #+#             */
-/*   Updated: 2026/03/10 12:02:27 by varandri         ###   ########.fr       */
+/*   Created: 2026/01/20 08:20:02 by varandri          #+#    #+#             */
+/*   Updated: 2026/02/09 14:53:52 by varandri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
-int	ft_print_int(int n)
+size_t	ft_strlcpy(char *dst, const char *src, size_t size)
 {
-	char	*str;
-	int		count;
+	size_t	i;
+	size_t	src_len;
 
-	str = ft_itoa(n);
-	count = ft_print_str(str);
-	free(str);
-	return (count);
+	src_len = ft_strlen(src);
+	if (size == 0)
+		return (src_len);
+	i = 0;
+	while (src[i] && i < (size - 1))
+	{
+		dst[i] = src[i];
+		i++;
+	}
+	dst[i] = '\0';
+	return (src_len);
 }

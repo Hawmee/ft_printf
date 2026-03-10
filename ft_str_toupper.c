@@ -1,24 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_int.c                                     :+:      :+:    :+:   */
+/*   ft_str_toupper.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: varandri <varandri@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/02/08 15:55:07 by varandri          #+#    #+#             */
-/*   Updated: 2026/03/10 12:02:27 by varandri         ###   ########.fr       */
+/*   Created: 2026/02/12 15:03:12 by varandri          #+#    #+#             */
+/*   Updated: 2026/03/10 12:03:10 by varandri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_print_int(int n)
+char	*ft_str_toupper(char *s)
 {
-	char	*str;
-	int		count;
+	int	i;
 
-	str = ft_itoa(n);
-	count = ft_print_str(str);
-	free(str);
-	return (count);
+	i = 0;
+	while (s && s[i])
+	{
+		s[i] = ft_toupper(s[i]);
+		i++;
+	}
+	return (s);
 }

@@ -1,24 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_int.c                                     :+:      :+:    :+:   */
+/*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: varandri <varandri@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/02/08 15:55:07 by varandri          #+#    #+#             */
-/*   Updated: 2026/03/10 12:02:27 by varandri         ###   ########.fr       */
+/*   Created: 2026/01/21 13:55:25 by varandri          #+#    #+#             */
+/*   Updated: 2026/02/05 19:53:47 by varandri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
-int	ft_print_int(int n)
+void	*ft_calloc(size_t nmemb, size_t size)
 {
-	char	*str;
-	int		count;
+	void	*ptr;
 
-	str = ft_itoa(n);
-	count = ft_print_str(str);
-	free(str);
-	return (count);
+	if (size && nmemb > (size_t)-1 / size)
+		return (NULL);
+	ptr = malloc (nmemb * size);
+	if (!ptr)
+		return (NULL);
+	ft_bzero(ptr, (nmemb * size));
+	return (ptr);
 }

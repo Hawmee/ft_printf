@@ -1,25 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_toupper.c                                       :+:      :+:    :+:   */
+/*   ft_lstadd_front.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: varandri <varandri@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/02/12 15:03:12 by varandri          #+#    #+#             */
-/*   Updated: 2026/02/13 14:46:54 by varandri         ###   ########.fr       */
+/*   Created: 2026/01/26 08:00:43 by varandri          #+#    #+#             */
+/*   Updated: 2026/02/07 21:17:46 by varandri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char	*ft_toupper(char *s)
-{
-	int	i;
+#include "libft.h"
 
-	i = 0;
-	while (s && s[i])
-	{
-		if (s[i] >= 'a' && s[i] <= 'z')
-			s[i] = s[i] - 32;
-		i++;
-	}
-	return (s);
+void	ft_lstadd_front(t_list **lst, t_list *new)
+{
+	if (!new || !lst)
+		return ;
+	new->next = *lst;
+	*lst = new;
 }

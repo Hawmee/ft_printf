@@ -1,24 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_int.c                                     :+:      :+:    :+:   */
+/*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: varandri <varandri@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/02/08 15:55:07 by varandri          #+#    #+#             */
-/*   Updated: 2026/03/10 12:02:27 by varandri         ###   ########.fr       */
+/*   Created: 2026/01/22 08:46:52 by varandri          #+#    #+#             */
+/*   Updated: 2026/02/08 10:36:17 by varandri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
-int	ft_print_int(int n)
+char	*ft_strjoin(char const *s1, char const *s2)
 {
-	char	*str;
-	int		count;
+	char	*res;
+	size_t	s1_len;
+	size_t	s2_len;	
 
-	str = ft_itoa(n);
-	count = ft_print_str(str);
-	free(str);
-	return (count);
+	if (!s1 || !s2)
+		return (NULL);
+	s1_len = ft_strlen(s1);
+	s2_len = ft_strlen(s2);
+	res = (char *)ft_calloc ((s1_len + s2_len + 1), sizeof(char));
+	if (!res)
+		return (NULL);
+	ft_memmove(res, s1, s1_len);
+	ft_memmove((res + s1_len), s2, s2_len);
+	return (res);
 }

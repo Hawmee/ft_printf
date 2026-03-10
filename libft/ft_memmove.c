@@ -1,24 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_int.c                                     :+:      :+:    :+:   */
+/*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: varandri <varandri@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/02/08 15:55:07 by varandri          #+#    #+#             */
-/*   Updated: 2026/03/10 12:02:27 by varandri         ###   ########.fr       */
+/*   Created: 2026/01/20 08:19:28 by varandri          #+#    #+#             */
+/*   Updated: 2026/02/09 14:52:19 by varandri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
-int	ft_print_int(int n)
+void	*ft_memmove(void *dest, const void *src, size_t n)
 {
-	char	*str;
-	int		count;
+	unsigned char	*d;
+	unsigned char	*s;
 
-	str = ft_itoa(n);
-	count = ft_print_str(str);
-	free(str);
-	return (count);
+	d = (unsigned char *)dest;
+	s = (unsigned char *)src;
+	if (d <= s)
+		ft_memcpy(d, s, n);
+	else
+	{
+		while (n)
+		{
+			d[n - 1] = s[n - 1];
+			n--;
+		}
+	}
+	return (dest);
 }

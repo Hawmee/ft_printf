@@ -1,24 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_int.c                                     :+:      :+:    :+:   */
+/*   ft_strrchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: varandri <varandri@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/02/08 15:55:07 by varandri          #+#    #+#             */
-/*   Updated: 2026/03/10 12:02:27 by varandri         ###   ########.fr       */
+/*   Created: 2026/01/20 14:18:25 by varandri          #+#    #+#             */
+/*   Updated: 2026/02/09 14:54:15 by varandri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
-int	ft_print_int(int n)
+char	*ft_strrchr(const char *s, int c)
 {
-	char	*str;
-	int		count;
+	unsigned char	*str;
+	int				i;
 
-	str = ft_itoa(n);
-	count = ft_print_str(str);
-	free(str);
-	return (count);
+	str = (unsigned char *)s;
+	i = (int)ft_strlen(s);
+	while (i >= 0)
+	{
+		if ((unsigned char)c == str[i])
+			return ((char *)(str + i));
+		i--;
+	}
+	return (NULL);
 }

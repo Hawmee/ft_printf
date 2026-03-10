@@ -1,29 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_calloc.c                                        :+:      :+:    :+:   */
+/*   ft_putchar_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: varandri <varandri@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/02/12 14:34:11 by varandri          #+#    #+#             */
-/*   Updated: 2026/02/13 14:45:24 by varandri         ###   ########.fr       */
+/*   Created: 2026/01/24 09:01:43 by varandri          #+#    #+#             */
+/*   Updated: 2026/02/07 10:40:53 by varandri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
-void	*ft_calloc(size_t nmemb, size_t size)
+void	ft_putchar_fd(char c, int fd)
 {
-	void	*ptr;
-	size_t	i;
-
-	if (size && nmemb > (size_t)-1 / size)
-		return (NULL);
-	ptr = malloc (nmemb * size);
-	if (!ptr)
-		return (NULL);
-	i = 0;
-	while (i < (nmemb * size))
-		((unsigned char *)ptr)[i++] = 0;
-	return ((void *)ptr);
+	if (fd < 0)
+		return ;
+	write(fd, &c, 1);
 }

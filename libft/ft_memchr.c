@@ -1,24 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_int.c                                     :+:      :+:    :+:   */
+/*   ft_memchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: varandri <varandri@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/02/08 15:55:07 by varandri          #+#    #+#             */
-/*   Updated: 2026/03/10 12:02:27 by varandri         ###   ########.fr       */
+/*   Created: 2026/01/20 15:48:58 by varandri          #+#    #+#             */
+/*   Updated: 2026/02/09 14:52:04 by varandri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
-int	ft_print_int(int n)
+void	*ft_memchr(const void *s, int c, size_t n)
 {
-	char	*str;
-	int		count;
+	size_t			i;
+	unsigned char	*str;
 
-	str = ft_itoa(n);
-	count = ft_print_str(str);
-	free(str);
-	return (count);
+	i = 0;
+	str = (unsigned char *)s;
+	while (i < n)
+	{
+		if (str[i] == (unsigned char)c)
+			return ((void *)(str + i));
+		i++;
+	}
+	return (NULL);
 }

@@ -1,24 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_int.c                                     :+:      :+:    :+:   */
+/*   ft_strnstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: varandri <varandri@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/02/08 15:55:07 by varandri          #+#    #+#             */
-/*   Updated: 2026/03/10 12:02:27 by varandri         ###   ########.fr       */
+/*   Created: 2026/01/21 09:53:20 by varandri          #+#    #+#             */
+/*   Updated: 2026/02/09 14:54:10 by varandri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
-int	ft_print_int(int n)
+char	*ft_strnstr(const char *big, const char *little, size_t len)
 {
-	char	*str;
-	int		count;
+	size_t	i;
+	size_t	j;
 
-	str = ft_itoa(n);
-	count = ft_print_str(str);
-	free(str);
-	return (count);
+	if (!*little)
+		return ((char *)big);
+	i = 0;
+	while (len && big[i] && i < len)
+	{
+		j = 0;
+		while (little[j] && big[i + j] && big[i + j] == little[j]
+			&& (i + j) < len)
+			j++;
+		if (!little[j])
+			return ((char *)&big[i]);
+		i++;
+	}
+	return (NULL);
 }

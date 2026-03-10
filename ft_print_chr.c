@@ -6,7 +6,7 @@
 /*   By: varandri <varandri@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/08 15:00:49 by varandri          #+#    #+#             */
-/*   Updated: 2026/02/12 14:16:29 by varandri         ###   ########.fr       */
+/*   Updated: 2026/03/10 11:21:29 by varandri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,6 @@
 
 int	ft_print_chr(char c)
 {
-	write(1, &c, 1);
+	ft_putchar_fd(c, 1);
 	return (1);
 }

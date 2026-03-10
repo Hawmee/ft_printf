@@ -1,27 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_str.c                                     :+:      :+:    :+:   */
+/*   ft_strlcat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: varandri <varandri@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/02/08 14:28:28 by varandri          #+#    #+#             */
-/*   Updated: 2026/03/10 11:22:11 by varandri         ###   ########.fr       */
+/*   Created: 2026/01/20 08:19:56 by varandri          #+#    #+#             */
+/*   Updated: 2026/02/09 14:53:43 by varandri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
-int	ft_print_str(char *s)
+size_t	ft_strlcat(char *dst, const char *src, size_t size)
 {
-	int	len;
+	size_t	i;
+	size_t	dst_len;
+	size_t	src_len;
 
-	if (!s)
+	src_len = ft_strlen(src);
+	if (size == 0)
+		return (size + src_len);
+	dst_len = ft_strlen(dst);
+	i = 0;
+	if (size <= dst_len)
+		return (size + src_len);
+	while ((dst_len + i) < (size - 1) && src[i])
 	{
-		write(1, "(null)", 6);
-		return (6);
+		dst[dst_len + i] = src[i];
+		i++;
 	}
-	ft_putstr_fd(s, 1);
-	len = ft_strlen(s);
-	return (len);
+	dst[dst_len + i] = '\0';
+	return (dst_len + src_len);
 }
